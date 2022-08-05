@@ -10,6 +10,8 @@ import net.minecraft.entity.boss.dragon.EnderDragonFight;
 import net.minecraft.entity.mob.ShulkerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Heightmap;
+import net.minecraft.world.gen.feature.EndPortalFeature;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,7 +41,7 @@ public class EnderDragonFightMixin {
   private void setExitPortalLocation(boolean previouslyKilled, CallbackInfo ci) {
     if (this.world.getChunkManager().getChunkGenerator() instanceof FlatWorldChunkGenerator) {
       if (this.exitPortalLocation == null) {
-        this.exitPortalLocation = new BlockPos(0, EXIT_PORTAL_HEIGHT, 0);
+        this.exitPortalLocation = this.world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, EndPortalFeature.ORIGIN).down();
       }
     }
   }
