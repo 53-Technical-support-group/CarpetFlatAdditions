@@ -1,0 +1,4 @@
+{
+  "function": "minecraft:set_nbt", 
+  "tag": "{CustomModelData:1150006.0f}"
+}

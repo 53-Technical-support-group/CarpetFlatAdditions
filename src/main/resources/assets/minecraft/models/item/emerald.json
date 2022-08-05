@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/emerald"
+  },
+	"overrides":[
+	{"predicate":{"custom_model_data":1150000},"model":"minecraft:item/coinhead00"},
+	{"predicate":{"custom_model_data":1150001},"model":"minecraft:item/coinhead01"},
+	{"predicate":{"custom_model_data":1150002},"model":"minecraft:item/coinhead02"},
+	{"predicate":{"custom_model_data":1150003},"model":"minecraft:item/coinhead03"},
+	{"predicate":{"custom_model_data":1150004},"model":"minecraft:item/coinhead04"},
+	{"predicate":{"custom_model_data":1150005},"model":"minecraft:item/coinhead05"},
+	{"predicate":{"custom_model_data":1150006},"model":"minecraft:item/coinhead06"},
+	{"predicate":{"custom_model_data":1150007},"model":"minecraft:item/coinheadbomb"},
+	{"predicate":{"custom_model_data":1150008},"model":"minecraft:item/coinhead10"},
+	{"predicate":{"custom_model_data":1150009},"model":"minecraft:item/coinhead11"},
+	{"predicate":{"custom_model_data":1150010},"model":"minecraft:item/coinhead12"},
+	{"predicate":{"custom_model_data":1150011},"model":"minecraft:item/coinhead13"},
+	{"predicate":{"custom_model_data":1150012},"model":"minecraft:item/coinhead14"},
+	{"predicate":{"custom_model_data":1150013},"model":"minecraft:item/coinhead15"},
+	{"predicate":{"custom_model_data":1150014},"model":"minecraft:item/coinhead16"},
+	{"predicate":{"custom_model_data":1150015},"model":"minecraft:item/coinheadthrow1"},
+	{"predicate":{"custom_model_data":1150016},"model":"minecraft:item/coinheadthrow2"},
+	{"predicate":{"custom_model_data":1150017},"model":"minecraft:item/coinheadthrow3"},
+	{"predicate":{"custom_model_data":1150018},"model":"minecraft:item/coinheadthrow4"}
+	]
+}
