@@ -1,4 +1,4 @@
-package com.jsorrell.flatworld;
+package dev.dubhe.flatworld;
 
 public final class Build {
   public static final String ID = "flatworld";
