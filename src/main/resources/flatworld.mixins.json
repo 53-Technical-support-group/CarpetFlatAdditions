@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "package": "dev.dubhe.flatworld.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CriteriaAccessor",
+    "DolphinEntityMixin",
+    "EnderDragonEntityMixin",
+    "EnderDragonFightMixin",
+    "EndermanEntity_PickUpBlockGoalMixin",
+    "EndermanEntity_PlaceBlockGoalMixin",
+    "EndIslandFeatureMixin",
+    "FeaturePlacementContextMixin",
+    "FoxEntityMixin",
+    "GeneratorOptionsMixin",
+    "ItemEntityMixin",
+    "LavaFluidMixin",
+    "LightningEntityMixin",
+    "LivingEntityMixin",
+    "MinecraftServerMixin",
+    "MissingDimensionFixMixin",
+    "RamImpactTaskMixin",
+    "SaplingBlockMixin",
+    "SchemasMixin",
+    "SinglePoolElementAccessor",
+    "SpawnRestrictionAccessor",
+    "SpiderEntityMixin",
+    "WanderingTraderEntityMixin",
+    "WorldGenSettingsHeightAndBiomeFixMixin"
+  ],
+  "client": [
+    "GeneratorTypeAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

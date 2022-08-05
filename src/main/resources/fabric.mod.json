@@ -1,30 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "skyblock",
+  "id": "flatworld",
   "version": "${version}",
-  "name": "SkyBlock",
-  "description": "Empty world generation with new ways to obtain resources",
+  "name": "FlatWorld",
+  "description": "Flat world generation with new ways to obtain resources",
   "authors": [
-    "jsorrell"
+    "jsorrell",
+    "53-Technical-support-group"
   ],
   "contact": {
-    "sources": "https://github.com/jsorrell/skyblock",
-    "issues": "https://github.com/jsorrell/skyblock/issues"
+    "sources": "https://github.com/53-Technical-support-group/CarpetFlatAdditions",
+    "issues": "https://github.com/53-Technical-support-group/CarpetFlatAdditions/issues"
   },
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.jsorrell.skyblock.SkyBlockExtension"
+      "dev.dubhe.flatworld.FlatWorldExtension"
     ],
     "client": [
-      "com.jsorrell.skyblock.SkyBlockClient"
+      "dev.dubhe.flatworld.FlatWorldClient"
     ]
   },
   "mixins": [
-    "skyblock.mixins.json"
+    "flatworld.mixins.json"
   ],
-  "accessWidener": "skyblock.accesswidener",
+  "accessWidener": "flatworld.accesswidener",
   "depends": {
     "fabricloader": "*",
     "fabric": "*",

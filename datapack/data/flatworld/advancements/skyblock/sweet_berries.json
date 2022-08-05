@@ -1,0 +1,29 @@
+{
+  "parent": "flatworld:flatworld/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:sweet_berries"
+    },
+    "title": {
+      "translate": "Snatched from the Jaws"
+    },
+    "description": {
+      "translate": "Get Sweet Berries from a Fox"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "berries": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sweet_berries"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

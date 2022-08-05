@@ -1,0 +1,28 @@
+{
+  "parent": "flatworld:flatworld/lightning_rod",
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "Panacea"
+    },
+    "description": {
+      "translate": "Kill some converted Zombified Piglins and craft a Golden Apple"
+    }
+  },
+  "criteria": {
+    "golden_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_apple"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

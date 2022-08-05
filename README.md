@@ -1,15 +1,15 @@
-# SkyBlock
+# FlatWorld
 
 **English**|[中文](README_cn.md)
 
-SkyBlock is a module for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
-originally based on [skyrising/skyblock](https://github.com/skyrising/skyblock).
+FlatWorld is a module for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
+originally based on [skyrising/flatworld](https://github.com/skyrising/flatworld).
 
-This mod aims to provide an expert level SkyBlock gameplay that depends on players' knowledge of Minecraft mechanics. In
+This mod aims to provide an expert level FlatWorld gameplay that depends on players' knowledge of Minecraft mechanics. In
 some cases, outside tools such as [Chunkbase](https://www.chunkbase.com/)
 or [MiniHUD](https://www.curseforge.com/minecraft/mc-mods/minihud) will be helpful. Usage of these is encouraged.
 Sometimes extended grinding or AFK sessions will be required for progression, although I've tried to minimize this in
-some cases. Unless a command is run to enable features or SkyBlock world generation is chosen, the mod will not affect
+some cases. Unless a command is run to enable features or FlatWorld world generation is chosen, the mod will not affect
 other saves on the client it is installed on.
 
 ## Installation
@@ -17,8 +17,8 @@ other saves on the client it is installed on.
 - Install [Fabric](https://fabricmc.net/use)
 - Download [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)
-- Download [SkyBlock and the Datapack](https://github.com/jsorrell/skyblock/releases)
-- Place fabric-carpet, fabric-api, and SkyBlock into `<minecraft-directory>/mods/`
+- Download [FlatWorld and the Datapack](https://github.com/jsorrell/flatworld/releases)
+- Place fabric-carpet, fabric-api, and FlatWorld into `<minecraft-directory>/mods/`
 
 ## Usage
 
@@ -29,25 +29,25 @@ other saves on the client it is installed on.
 - Select the downloaded Datapack
 - Set Allow Cheats to `ON` so you will be able to enable mod features
 - Click on `More World Options...`
-- Choose `World Type: SkyBlock`
+- Choose `World Type: FlatWorld`
 - Create the world
-- Run `/function skyblock:enable_features` to enable SkyBlock features
+- Run `/function flatworld:enable_features` to enable FlatWorld features
 
 ### Multiplayer
 
 The mod and datapack are only required on the server.
 
 - Open `server.properties`
-- Change `level-type=default` to `level-type=skyblock`
+- Change `level-type=default` to `level-type=flatworld`
 - Make sure to delete or move the world folder in order to create a new world
 - Move the downloaded datapack to the `datapack` directory
-- Run `function skyblock:enable_features` to enable SkyBlock features
+- Run `function flatworld:enable_features` to enable FlatWorld features
 
 ## Features
 
-### SkyBlock Generation
+### FlatWorld Generation
 
-A SkyBlock world generates exactly like a Default generation world, but with every block removed. Biomes and Structure
+A FlatWorld world generates exactly like a Default generation world, but with every block removed. Biomes and Structure
 Bounding Boxes are kept in place. This means Husks will still spawn in Deserts and Blazes will spawn in Nether
 Fortresses, for example.
 
@@ -70,7 +70,7 @@ features.
 
 ### Additional Mod Features ###
 
-SkyBlock generation does, however, leave a few unobtainable resources. In addition to generation, this mod also fills in
+FlatWorld generation does, however, leave a few unobtainable resources. In addition to generation, this mod also fills in
 the gaps, making as minimal and Minecrafty changes as possible.
 
 ---
@@ -79,7 +79,7 @@ the gaps, making as minimal and Minecrafty changes as possible.
 
 Provides *tall flowers*
 
-Disable with ```/skyblock setDefault wanderingTraderSkyBlockTrades false```
+Disable with ```/flatworld setDefault wanderingTraderFlatWorldTrades false```
 
 Tall Flowers trades mimic Bedrock.
 
@@ -108,7 +108,7 @@ Tall Flowers trades mimic Bedrock.
 
 Provides *Glow Lichen*
 
-Disable with ```/skyblock setDefault lightningElectrifiesVines false```
+Disable with ```/flatworld setDefault lightningElectrifiesVines false```
 
 If lightning strikes Glowstone with vines attached, the vines will turn into Glow Lichen. It can also strike a Lightning
 Rod on the Glowstone.
@@ -119,7 +119,7 @@ Rod on the Glowstone.
 
 Provides *Budding Amethysts*
 
-Disable with ```/skyblock setDefault renewableBuddingAmethysts false```
+Disable with ```/flatworld setDefault renewableBuddingAmethysts false```
 
 A lava block surrounded by Calcite which is then surrounded by Smooth Basalt will eventually turn into a Budding
 Amethyst.
@@ -143,7 +143,7 @@ After some time (2 hours on average), the Lava in the center will turn into a Bu
 
 Provides *Chorus Fruit* and *Chorus Flowers*
 
-Disable with ```/skyblock setDefault gatewaysSpawnChorus false```
+Disable with ```/flatworld setDefault gatewaysSpawnChorus false```
 
 When an End Gateway is taken to a position over the void, the Endstone island generated spawns with a Chorus Tree on it.
 
@@ -153,7 +153,7 @@ When an End Gateway is taken to a position over the void, the Endstone island ge
 
 Provides *Hearts of the Sea*
 
-Disable with ```/skyblock setDefault renewableHeartsOfTheSea false```
+Disable with ```/flatworld setDefault renewableHeartsOfTheSea false```
 
 When a Dolphin is fed a fish, they may dig a Heart of the Sea out of Sand or Gravel on the sea floor.
 
@@ -165,7 +165,7 @@ Must be in an Ocean biome -- they're Hearts of the Sea, not Hearts of the Jungle
 
 Provides *Dragon Heads*
 
-Disable with ```/skyblock setDefault renewableDragonHeads false```
+Disable with ```/flatworld setDefault renewableDragonHeads false```
 
 When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
 
@@ -175,7 +175,7 @@ When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
 
 Provides *Shulkers*
 
-Disable with ```/skyblock setDefault shulkerSpawning false```
+Disable with ```/flatworld setDefault shulkerSpawning false```
 
 When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar.
 
@@ -185,7 +185,7 @@ When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar
 
 Provides *Diamonds*
 
-Disable with ```/skyblock setDefault renewableDiamonds false```
+Disable with ```/flatworld setDefault renewableDiamonds false```
 
 A Falling Anvil crushes a stack of Coal Blocks into a Diamond.
 
@@ -195,7 +195,7 @@ A Falling Anvil crushes a stack of Coal Blocks into a Diamond.
 
 Provides *Nether Wart*
 
-Disable with ```/skyblock setDefault rammingWart false```
+Disable with ```/flatworld setDefault rammingWart false```
 
 When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
@@ -205,7 +205,7 @@ When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
 Provides *Sweet Berries*
 
-Disable with ```/skyblock setDefault foxesSpawnWithBerries false```
+Disable with ```/flatworld setDefault foxesSpawnWithBerries false```
 
 When a Fox spawns with an item, there is a 20% chance the item is Sweet Berries. The Fox will eat them soon after
 spawning, so be quick.
@@ -216,7 +216,7 @@ spawning, so be quick.
 
 Provides *Dead Bushes*
 
-Disable with ```/skyblock setDefault saplingsDieOnSand false```
+Disable with ```/flatworld setDefault saplingsDieOnSand false```
 
 Saplings can be placed on Sand and Red Sand.
 
@@ -228,7 +228,7 @@ After a time, the saplings will die and turn into Dead Bushes.
 
 Provides *Cave Spiders*
 
-Disable with ```/skyblock setDefault poisonousPotatoesConvertSpiders false```
+Disable with ```/flatworld setDefault poisonousPotatoesConvertSpiders false```
 
 Use a Poisonous Potato on a Spider to convert it to a Cave Spider.
 
@@ -412,7 +412,7 @@ The vanilla Magma Cream recipe is too easy. Make a Magma Cube farm instead.
 
 #### War Pigs Advancement Changed ####
 
-In a SkyBlock world, the War Pigs advancement is unobtainable because it requires generated chests.
+In a FlatWorld world, the War Pigs advancement is unobtainable because it requires generated chests.
 
 The advancement is now obtainable by killing a Piglin Brute.
 
@@ -420,7 +420,7 @@ The advancement is now obtainable by killing a Piglin Brute.
 
 ### Numerous Added Advancements ###
 
-SkyBlock advancements help guide progression, as well as serve to document the mod's changes to vanilla.
+FlatWorld advancements help guide progression, as well as serve to document the mod's changes to vanilla.
 
 With all features enabled, all vanilla advancements can be completed (although War Pigs is changed).
 
@@ -429,7 +429,7 @@ With all features enabled, all vanilla advancements can be completed (although W
 Installation will also enable these `fabric-carpet` features.
 
 With the `fabric-carpet` options below enabled, all blocks, items, and mobs obtainable in vanilla survival are
-obtainable in SkyBlock.
+obtainable in FlatWorld.
 
 - [renewableSponges](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges) for
   Sponges
@@ -440,7 +440,7 @@ obtainable in SkyBlock.
 
 ## Acknowledgements
 
-- [@skyrising](https://github.com/skyrising/skyblock) for the initial mod idea and some source code
+- [@skyrising](https://github.com/skyrising/flatworld) for the initial mod idea and some source code
 
 - [@DeadlyMC](https://github.com/DeadlyMC/Skyblock-datapack) for the initial ideas for the datapack
 

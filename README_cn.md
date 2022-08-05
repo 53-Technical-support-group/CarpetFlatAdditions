@@ -1,8 +1,8 @@
-# SkyBlock
+# FlatWorld
 
 [English](README.md)|**中文**
 
-SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)修改而来的依赖[fabric-carpet](https://github.com/gnembon/fabric-carpet)的模组。
+FlatWorld是一个由[skyrising/flatworld](https://github.com/skyrising/flatworld)修改而来的依赖[fabric-carpet](https://github.com/gnembon/fabric-carpet)的模组。
 
 该模组致力于在原版基础上为玩家提供专业的的空岛游戏体验。在某些时候诸如[Chunkbase](https://www.chunkbase.com/)或[MiniHUD](https://www.curseforge.com/minecraft/mc-mods/minihud)这类工具会很有用，建议搭配使用。尽管我已经尽力去将这方面的不良体验最小化，但某些时候游戏的进度依旧会比较折磨或者需要挂机一定时间。
 除非你使用指令开启其相关功能或者在世界生成时选择了**空岛**，否则该模组不会对客户端已经安装的其他存档造成任何影响。
@@ -11,8 +11,8 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 + 安装[Fabric](https://fabricmc.net/use)
 + 下载[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files/)
 + 下载[fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)
-+ 下载[SkyBlock模组及其数据包](https://github.com/jsorrell/skyblock/releases)
-+ 将fabric-carpet，fabric-api和SkyBlock模组放进到`<minecraft文件目录>/mods/`文件夹内
++ 下载[FlatWorld模组及其数据包](https://github.com/jsorrell/flatworld/releases)
++ 将fabric-carpet，fabric-api和FlatWorld模组放进到`<minecraft文件目录>/mods/`文件夹内
 
 ## 使用
 
@@ -24,15 +24,15 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 + 点击`更多世界选项`
 + 选择`世界类型：空岛`
 + 创建世界
-+ 进入游戏后使用指令`/function skyblock:enable_features`以启用空岛特性
++ 进入游戏后使用指令`/function flatworld:enable_features`以启用空岛特性
 
 ### 多人游戏
 模组与数据包仅需要在服务端进行设置
 + 以文本编辑器打开`server.properties`（如果没有更好的文本编辑器就请使用记事本打开）
-+ 将`level-type=default`修改为`level-type=skyblock`
++ 将`level-type=default`修改为`level-type=flatworld`
 + 确保你已经删除或移除了旧有的世界文件夹以创建新的世界
 + 将前面下载好的数据包放进世界存档文件夹中的`datapack`文件夹中
-+ 在控制台执行指令`function skyblock:enable_features`以启用空岛特性（或在客户端以OP权限执行`/function skyblock:enable_features`）
++ 在控制台执行指令`function flatworld:enable_features`以启用空岛特性（或在客户端以OP权限执行`/function flatworld:enable_features`）
 
 ## 特性
 
@@ -56,7 +56,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 流浪商人交易追加 ####
 提供*高花*与*熔岩桶*的交易
 
-通过指令```/skyblock setDefault wanderingTraderSkyBlockTrades false```可禁用该特性
+通过指令```/flatworld setDefault wanderingTraderFlatWorldTrades false```可禁用该特性
 
 高花交易灵感来源于基岩版
 
@@ -80,7 +80,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 雷击藤蔓使其通电 ####
 提供*发光地衣*
 
-通过指令```/skyblock setDefault lightningElectrifiesVines false```可禁用该特性
+通过指令```/flatworld setDefault lightningElectrifiesVines false```可禁用该特性
 
 如果闪电击中附着于萤石上的藤蔓，则藤蔓将会转变为发光地衣，击中萤石上的避雷针时该特性依旧有效。
 
@@ -89,7 +89,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 紫水晶母岩可再生 ####
 提供*紫水晶母岩*
 
-通过指令```/skyblock setDefault renewableBuddingAmethysts false```可禁用该特性
+通过指令```/flatworld setDefault renewableBuddingAmethysts false```可禁用该特性
 
 当熔岩方块被方解石包围后，外围再被平滑玄武岩包围时，最终会变为一个紫水晶母岩方块
 
@@ -110,7 +110,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 末地折跃门生成紫颂植物 ####
 提供*紫颂果*和*紫颂花*
 
-通过指令```/skyblock setDefault gatewaysSpawnChorus false```可禁用该特性
+通过指令```/flatworld setDefault gatewaysSpawnChorus false```可禁用该特性
 
 当一个末地折跃门在虚空上方生成时，其伴生的末地石小岛将会生成一颗紫颂树。
 
@@ -119,7 +119,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 海豚可以找到海洋之心 ####
 提供*海洋之心*
 
-通过指令```/skyblock setDefault renewableHeartsOfTheSea false```可禁用该特性
+通过指令```/flatworld setDefault renewableHeartsOfTheSea false```可禁用该特性
 
 当海豚被喂食鱼后无法找到宝箱时，它会找到海洋之心。
 
@@ -128,7 +128,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 末影龙掉落龙首 ####
 提供*龙首*
 
-通过指令```/skyblock setDefault renewableDragonHeads false```可禁用该特性
+通过指令```/flatworld setDefault renewableDragonHeads false```可禁用该特性
 
 当末影龙被**高压爬行者**击杀时，她会掉落她的头颅。
 
@@ -137,7 +137,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 潜影贝生成于击杀末影龙后 ####
 提供*潜影贝*
 
-通过指令```/skyblock setDefault shulkerSpawning false```可禁用该特性
+通过指令```/flatworld setDefault shulkerSpawning false```可禁用该特性
 
 当末影龙被再次击杀时，一只潜影贝会在基岩祭坛的顶部生成。
 
@@ -146,7 +146,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 铁砧压合煤炭块为钻石 ####
 提供*钻石*
 
-通过指令```/skyblock setDefault renewableDiamonds false```可禁用该特性
+通过指令```/flatworld setDefault renewableDiamonds false```可禁用该特性
 
 下落的铁砧可将整组煤炭块转化为钻石。
 
@@ -155,7 +155,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 山羊撞击分解地狱疣块 ####
 提供*地狱疣*
 
-通过指令```/skyblock setDefault rammingWart false```可禁用该特性
+通过指令```/flatworld setDefault rammingWart false```可禁用该特性
 
 当山羊撞击地狱疣块时，它会分解为地狱疣。
 
@@ -164,7 +164,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
 #### 狐狸携带浆果生成 ####
 提供*发光浆果*及*甜浆果*
 
-通过指令```/skyblock setDefault foxesSpawnWithBerries false```可禁用该特性
+通过指令```/flatworld setDefault foxesSpawnWithBerries false```可禁用该特性
 
 当一只狐狸携带物品生成时，这个物品分别有15%的概率为发光浆果或甜浆果。
 狐狸在生成之后很快就会吃掉它，所以请动作快点。
@@ -320,7 +320,7 @@ SkyBlock是一个由[skyrising/skyblock](https://github.com/skyrising/skyblock)�
   + 运行指令`/carpet setDefault piglinsSpawningInBastions false`可禁用该特性
 
 ## 致谢
-+ [@skyrising](https://github.com/skyrising/skyblock)提供该mod的灵感和一些源代码
++ [@skyrising](https://github.com/skyrising/flatworld)提供该mod的灵感和一些源代码
 + [@DeadlyMC](https://github.com/DeadlyMC/Skyblock-datapack)提供数据包的设计灵感
 + [@gnembon](https://github.com/gnembon/fabric-carpet)为地毯模组的作者
 
