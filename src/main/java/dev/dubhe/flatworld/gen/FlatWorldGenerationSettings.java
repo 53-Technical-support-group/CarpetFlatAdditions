@@ -9,6 +9,7 @@ import net.minecraft.world.biome.source.TheEndBiomeSource;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
+import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 
 public class FlatWorldGenerationSettings {
 
@@ -54,19 +55,20 @@ public class FlatWorldGenerationSettings {
         chunkGeneratorSettingsRegistry.getOrCreateEntry(ChunkGeneratorSettings.OVERWORLD));
   }
 
-  public static FlatWorldChunkGenerator createNetherGenerator(DynamicRegistryManager drm, long seed) {
+  public static NoiseChunkGenerator createNetherGenerator(DynamicRegistryManager drm, long seed) {
     Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry = drm.get(Registry.CHUNK_GENERATOR_SETTINGS_KEY);
-    return new FlatWorldChunkGenerator(
-        drm.get(Registry.STRUCTURE_SET_KEY),
-        drm.get(Registry.NOISE_WORLDGEN),
-        MultiNoiseBiomeSource.Preset.NETHER.getBiomeSource(drm.get(Registry.BIOME_KEY)).withSeed(seed),
-        seed,
-        chunkGeneratorSettingsRegistry.getOrCreateEntry(ChunkGeneratorSettings.NETHER));
+    return new NoiseChunkGenerator(
+      drm.get(Registry.STRUCTURE_SET_KEY),
+      drm.get(Registry.NOISE_WORLDGEN),
+      MultiNoiseBiomeSource.Preset.NETHER.getBiomeSource(drm.get(Registry.BIOME_KEY)).withSeed(seed),
+      seed,
+      chunkGeneratorSettingsRegistry.getOrCreateEntry(ChunkGeneratorSettings.NETHER)
+    );
   }
 
-  public static FlatWorldChunkGenerator createEndGenerator(DynamicRegistryManager drm, long seed) {
+  public static NoiseChunkGenerator createEndGenerator(DynamicRegistryManager drm, long seed) {
     Registry<ChunkGeneratorSettings> chunkGeneratorSettingsRegistry = drm.get(Registry.CHUNK_GENERATOR_SETTINGS_KEY);
-    return new FlatWorldChunkGenerator(
+    return new NoiseChunkGenerator(
         drm.get(Registry.STRUCTURE_SET_KEY),
         drm.get(Registry.NOISE_WORLDGEN),
         new TheEndBiomeSource(drm.get(Registry.BIOME_KEY), seed),

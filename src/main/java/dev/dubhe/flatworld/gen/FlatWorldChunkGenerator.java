@@ -1,13 +1,11 @@
 package dev.dubhe.flatworld.gen;
 
-import com.google.common.collect.Sets;
 import dev.dubhe.flatworld.FlatWorldSettings;
 import dev.dubhe.flatworld.mixin.SinglePoolElementAccessor;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.ints.IntArraySet;
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
-import net.minecraft.SharedConstants;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.PoolStructurePiece;
@@ -15,9 +13,7 @@ import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.structure.StructureSet;
 import net.minecraft.structure.pool.SinglePoolElement;
-import net.minecraft.tag.BiomeTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
 import net.minecraft.util.dynamic.RegistryOps;
@@ -25,31 +21,24 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.ChunkSectionPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryEntryList;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkSection;
-import net.minecraft.world.chunk.ProtoChunk;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.StructureAccessor;
-import net.minecraft.world.gen.StructureWeightSampler;
 import net.minecraft.world.gen.chunk.AquiferSampler;
 import net.minecraft.world.gen.chunk.Blender;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
-import net.minecraft.world.gen.chunk.ChunkNoiseSampler;
-import net.minecraft.world.gen.chunk.GenerationShapeConfig;
 import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 import net.minecraft.world.gen.feature.BastionRemnantFeature;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
@@ -69,7 +58,6 @@ public class FlatWorldChunkGenerator extends NoiseChunkGenerator {
 
   private final long seed;
   private final Registry<DoublePerlinNoiseSampler.NoiseParameters> noiseRegistry;
-  private final AquiferSampler.FluidLevelSampler fluidLevelSampler;
 
   public static final Codec<FlatWorldChunkGenerator> CODEC =
     RecordCodecBuilder.create(
@@ -99,15 +87,6 @@ public class FlatWorldChunkGenerator extends NoiseChunkGenerator {
     // Duplicate seed and noiseRegistry from super b/c they have private access
     this.seed = seed;
     this.noiseRegistry = noiseRegistry;
-    AquiferSampler.FluidLevel fluidLevel = new AquiferSampler.FluidLevel(-54, Blocks.LAVA.getDefaultState());
-    int i = settings.value().seaLevel();
-    AquiferSampler.FluidLevel fluidLevel2 = new AquiferSampler.FluidLevel(i, settings.value().defaultFluid());
-    this.fluidLevelSampler = (x, y, z) -> {
-      if (y < Math.min(-54, i)) {
-        return fluidLevel;
-      }
-      return fluidLevel2;
-    };
   }
 
   public long getSeed() {
@@ -137,69 +116,23 @@ public class FlatWorldChunkGenerator extends NoiseChunkGenerator {
   public CompletableFuture<Chunk> populateNoise(
     Executor executor, Blender blender, StructureAccessor accessor, Chunk chunk) {
     BlockPos.Mutable mutable = new BlockPos.Mutable();
-    RegistryEntry<Biome> biome = chunk.getBiomeForNoiseGen(0,0,0);
-    if(biome.isIn(BiomeTags.IS_NETHER)
-      ||biome.matchesKey(BiomeKeys.THE_END)
-      ||biome.matchesKey(BiomeKeys.SMALL_END_ISLANDS)
-      ||biome.matchesKey(BiomeKeys.END_MIDLANDS)
-      ||biome.matchesKey(BiomeKeys.END_HIGHLANDS)
-      ||biome.matchesKey(BiomeKeys.END_BARRENS)
-      ||biome.matchesKey(BiomeKeys.THE_VOID)
-    ){
-      GenerationShapeConfig generationShapeConfig = this.settings.value().generationShapeConfig();
-      HeightLimitView heightLimitView = chunk.getHeightLimitView();
-      int i = Math.max(generationShapeConfig.minimumY(), heightLimitView.getBottomY());
-      int j = Math.min(generationShapeConfig.minimumY() + generationShapeConfig.height(), heightLimitView.getTopY());
-      int k = MathHelper.floorDiv(i, generationShapeConfig.verticalBlockSize());
-      int l = MathHelper.floorDiv(j - i, generationShapeConfig.verticalBlockSize());
-      if (l <= 0) {
-        return CompletableFuture.completedFuture(chunk);
+    List<BlockState> list = new ArrayList<>();
+    list.add(Blocks.BEDROCK.getDefaultState());
+    list.add(Blocks.DIRT.getDefaultState());
+    list.add(Blocks.DIRT.getDefaultState());
+    list.add(Blocks.GRASS_BLOCK.getDefaultState());
+    for (int i = 0; i < 4; i++) {
+      BlockState blockState = list.get(i);
+      if (blockState == null) {
+        continue;
       }
-      int m = chunk.getSectionIndex(l * generationShapeConfig.verticalBlockSize() - 1 + i);
-      int n = chunk.getSectionIndex(i);
-      HashSet<ChunkSection> set = Sets.newHashSet();
-      for (int o = m; o >= n; --o) {
-        ChunkSection chunkSection = chunk.getSection(o);
-        chunkSection.lock();
-        set.add(chunkSection);
-      }
-      if(biome.isIn(BiomeTags.IS_NETHER)){
-        for (int o = 0; o < 16; ++o) {
-          for (int p = 0; p < 16; ++p) {
-            chunk.setBlockState(mutable.set(o, 128, p), Blocks.BEDROCK.getDefaultState(), false);
-            chunk.setBlockState(mutable.set(o, 127, p), Blocks.BEDROCK.getDefaultState(), false);
-            chunk.setBlockState(mutable.set(o, 126, p), Blocks.BEDROCK.getDefaultState(), false);
-            chunk.setBlockState(mutable.set(o, 0, p), Blocks.BEDROCK.getDefaultState(), false);
-            chunk.setBlockState(mutable.set(o, 1, p), Blocks.BEDROCK.getDefaultState(), false);
-            chunk.setBlockState(mutable.set(o, 2, p), Blocks.BEDROCK.getDefaultState(), false);
-          }
+      for (int k = 0; k < 16; ++k) {
+        for (int l = 0; l < 16; ++l) {
+          chunk.setBlockState(mutable.set(k, i - 64, l), blockState, false);
         }
       }
-      return CompletableFuture.supplyAsync(
-        Util.debugSupplier("wgen_fill_noise", () -> this.populateNoise(blender, accessor, chunk, k, l)), Util.getMainWorkerExecutor()).whenCompleteAsync((chunk2, throwable) -> {
-        for (ChunkSection chunkSection : set) {
-          chunkSection.unlock();
-        }
-      }, executor);
-    }else{
-      List<BlockState> list = new ArrayList<>();
-      list.add(Blocks.BEDROCK.getDefaultState());
-      list.add(Blocks.DIRT.getDefaultState());
-      list.add(Blocks.DIRT.getDefaultState());
-      list.add(Blocks.GRASS_BLOCK.getDefaultState());
-      for (int i = 0; i < 4; i++) {
-        BlockState blockState = list.get(i);
-        if (blockState == null) {
-          continue;
-        }
-        for (int k = 0; k < 16; ++k) {
-          for (int l = 0; l < 16; ++l) {
-            chunk.setBlockState(mutable.set(k, i, l), blockState, false);
-          }
-        }
-      }
-      return CompletableFuture.completedFuture(chunk);
     }
+    return CompletableFuture.completedFuture(chunk);
   }
 
   @Override
