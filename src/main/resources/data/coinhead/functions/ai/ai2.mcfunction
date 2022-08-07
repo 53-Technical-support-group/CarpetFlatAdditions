@@ -8,4 +8,4 @@ scoreboard players add @s NPCTimer 1
 
 execute if entity @s[scores={NPCTimer=300}] at @s run playsound minecraft:minecraft.coin voice @a[distance=..24] ~ ~ ~ 1.0 1.0 1.0
 
-execute if entity @s[scores={NPCTimer=300}] run data merge entity @s {Tags:[coinhead]}
+execute if entity @s[scores={NPCTimer=300}] run data merge entity @s {Tags:["coinhead"]}

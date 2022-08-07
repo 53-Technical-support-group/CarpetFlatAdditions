@@ -14,10 +14,10 @@ execute if entity @s[scores={Animat=20..35}] at @s run tp @s ~ ~ ~ facing entity
 
 execute if entity @s[scores={Animat=20..35}] at @s run tp @s ~ ~ ~ facing entity @e[limit=1,sort=nearest,type=villager,distance=..16]
 
-execute if entity @s[scores={Animat=35}] at @s run summon minecraft:zombie ~ ~1 ~ {Tags:[coin],ArmorItems:[{},{},{},{id:"minecraft:emerald",Count:1,tag:{CustomModelData:1150007.0f}}],ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],ActiveEffects:[{Ambient:0,ShowIcon:0b,ShowParticles:0b,Id:14,Duration:2147483647,Amplifier:9}],NoAI:1b,Silent:1b,Invulnerable:1b,DeathLootTable:"minecraft:none"}
+execute if entity @s[scores={Animat=35}] at @s run summon minecraft:zombie ~ ~1 ~ {Tags:["coin"],ArmorItems:[{},{},{},{id:"minecraft:emerald",Count:1,tag:{CustomModelData:1150007.0f}}],ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],ActiveEffects:[{Ambient:0,ShowIcon:0b,ShowParticles:0b,Id:14,Duration:2147483647,Amplifier:9}],NoAI:1b,Silent:1b,Invulnerable:1b,DeathLootTable:"minecraft:none"}
 
-execute if entity @s[scores={Animat=35}] at @s as @e[limit=1,sort=nearest,nbt={Tags:[coin]}] run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,nbt={Tags:[coinhead]}] Rotation
+execute if entity @s[scores={Animat=35}] at @s as @e[limit=1,sort=nearest,nbt={Tags:["coin"]}] run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,nbt={Tags:["coinhead"]}] Rotation
 
 execute if entity @s[scores={Animat=35}] at @s run playsound minecraft:minecraft.coin voice @a[distance=..24] ~ ~ ~ 1.0 1.0 1.0
 
-execute if entity @s[scores={Animat=35}] run data merge entity @s {Tags:[coinhead2]}
+execute if entity @s[scores={Animat=35}] run data merge entity @s {Tags:["coinhead2"]}

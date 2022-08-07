@@ -197,7 +197,7 @@ public class FlatWorldStructures {
   public record SpawnPlatform(BlockPos worldSpawn) {
     public void generate(ServerWorldAccess world, Random random) {
       Structure structure = Objects.requireNonNull(world.getServer()).getStructureManager().getStructure(new Identifier("flatworld", "spawn_platform")).orElseThrow();
-      BlockPos structureOrigin = worldSpawn.subtract(new BlockPos(4, 1, 1));
+      BlockPos structureOrigin = worldSpawn.subtract(new BlockPos(4, 3, 1));
       structure.place(world, structureOrigin, worldSpawn, new StructurePlacementData(), random, Block.NOTIFY_LISTENERS);
     }
   }
