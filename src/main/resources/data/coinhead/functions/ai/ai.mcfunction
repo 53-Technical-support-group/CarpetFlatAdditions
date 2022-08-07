@@ -20,4 +20,4 @@ execute if entity @s[scores={Animat=35}] at @s as @e[limit=1,sort=nearest,nbt={T
 
 execute if entity @s[scores={Animat=35}] at @s run playsound minecraft:minecraft.coin voice @a[distance=..24] ~ ~ ~ 1.0 1.0 1.0
 
-execute if entity @s[scores={Animat=35}] run data merge entity @s {Tags:["coinhead2"]}
+execute if entity @s[scores={Animat=35}] run data merge entity @s {Tags:["coinhead2","ch"]}
