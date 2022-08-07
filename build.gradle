@@ -34,13 +34,6 @@ dependencies {
 	compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 }
 
-task zipDatapack(type: Zip) {
-	archiveFileName = project.archives_base_name + "-" + project.version + ".datapack.zip"
-	group = "build"
-	destinationDirectory = file('build/')
-	from files('./datapack')
-}
-
 task generateJava(type: Copy) {
 	def df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
 	df.setTimeZone(TimeZone.getTimeZone("UTC"))
